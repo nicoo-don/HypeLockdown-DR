@@ -25,7 +25,7 @@ public class Gioco {
             timer++;
 
             // Dopo un po' di tempo crea una nuova ondata
-            if (timer >= 200 && ondata <= MAX_ONDATE) {
+            if (timer >= 120 && ondata <= MAX_ONDATE) {
 
                 // Numero nemici dell'ondata
                 int nem = 2 + ondata;
@@ -98,7 +98,7 @@ public class Gioco {
         double x = -50 - i * 60;
 
         // Ogni 5 ondate il primo nemico è un boss
-        if (ondata % 5 == 0 && i == 0) {
+        if (ondata > 0 && ondata % 5 == 0 && i == 0){
             return new Influencer(x, 300);
         }
 

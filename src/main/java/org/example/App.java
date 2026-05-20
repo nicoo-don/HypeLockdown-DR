@@ -149,7 +149,22 @@ public class App extends Application {
 
                 // Disegno della torre
                 gc.setFill(t.getColore());
-                gc.fillOval(t.getX(), t.getY(), 30, 30);
+                if(t instanceof SubwooferBassBoost){
+                    gc.drawImage(((SubwooferBassBoost) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                } else if (t instanceof ScannerLegitCheck) {
+                    gc.drawImage(((ScannerLegitCheck) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                } else if (t instanceof MacchinaNebbia) {
+                    gc.drawImage(((MacchinaNebbia) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                } else if (t instanceof FlashBangLedWall) {
+                    gc.drawImage(((FlashBangLedWall) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                } else if (t instanceof HypeMagnet) {
+                    gc.drawImage(((HypeMagnet) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                } else if (t instanceof OlogrammaLimited) {
+                    gc.drawImage(((OlogrammaLimited) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                } else if (t instanceof DroneSniper) {
+                    gc.drawImage(((DroneSniper) t).getSprite(), t.getX(), t.getY(), 50, 50);
+                }
+                //gc.fillOval(t.getX(), t.getY(), 30, 30);
 
                 // Nome della torre sotto il personaggio
                 gc.setFill(Color.WHITE);
@@ -162,8 +177,21 @@ public class App extends Application {
 
                 // Disegno del nemico
                 gc.setFill(n.getColore());
-                gc.fillOval(n.getX(), n.getY(), 30, 30);
-
+                if(n instanceof Sprinter){
+                    gc.drawImage(((Sprinter) n).getSprite(), n.getX(), n.getY(), 50, 50);
+                } else if (n instanceof BotSquad){
+                    gc.drawImage(((BotSquad) n).getSprite(), n.getX(), n.getY(), 50, 50);
+                } else if (n instanceof CampingSquad){
+                    gc.drawImage(((CampingSquad) n).getSprite(), n.getX(), n.getY(), 50, 50);
+                } else if (n instanceof BackdoorCooker){
+                    gc.drawImage(((BackdoorCooker) n).getSprite(), n.getX(), n.getY(), 50, 50);
+                } else if (n instanceof Influencer){
+                    gc.drawImage(((Influencer) n).getSprite(), n.getX(), n.getY(), 50, 50);
+                }  else if (n instanceof Glitcher){
+                    gc.drawImage(((Glitcher) n).getSprite(), n.getX(), n.getY(), 50, 50);
+                }
+                //gc.fillOval(n.getX(), n.getY(), 30, 30);
+                
                 // Nome del nemico sopra
                 gc.setFill(Color.LIGHTGRAY);
                 gc.fillText(n.getNome(), n.getX() - 20, n.getY() - 5);
