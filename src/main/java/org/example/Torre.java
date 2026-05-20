@@ -27,12 +27,14 @@ public class Torre {
         this.colore = colore;
     }
 
+    // aggiorna il cooldown della torre (serve per ricaricare l'attacco)
     public void aggiorna() {
         if (contatoreRicarica > 0) {
             contatoreRicarica--;
         }
     }
 
+    // controlla se la torre è pronta a sparare
     public boolean pronta() {
         if (contatoreRicarica <= 0) {
             return true;
@@ -41,9 +43,12 @@ public class Torre {
         }
     }
 
+    // controlla se un nemico è nel raggio della torre
     public boolean puoColpire(Nemico nemico) {
+        // calcolo quanto il nemico è lontano
         double distanzaX = x - nemico.getX();
         double distanzaY = y - nemico.getY();
+        // calcolo la distanza reale tra torre e nemico usando Pitagora
         double distanza = Math.sqrt(distanzaX * distanzaX + distanzaY * distanzaY);
 
         if (distanza <= raggio) {
@@ -53,6 +58,7 @@ public class Torre {
         }
     }
 
+    // attacco della torre sul nemico
     public void attacca(Nemico nemico) {
         if (!pronta()) {
             return;
@@ -62,7 +68,7 @@ public class Torre {
             return;
         }
 
-        // Alcuni effetti sono diversi in base al tipo di difesa.
+        // Alcuni effetti sono diversi in base al tipo di difesa
         if (tipo.equals("subwoofer")) {
             if (!nemico.isImmuneSubwoofer()) {
                 nemico.subisciDanno(danno);
@@ -88,7 +94,7 @@ public class Torre {
         } else if (tipo.equals("drone")) {
             nemico.subisciDanno(danno);
         }
-
+        // dopo aver attaccato parte il cooldown
         contatoreRicarica = tempoRicarica;
     }
 

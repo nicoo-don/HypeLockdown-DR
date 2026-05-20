@@ -41,7 +41,9 @@ public class Nemico {
         this.glitcher = false;
     }
 
+    // Movimento del nemico
     public void muovi() {
+        // Se è stordito non si muove
         if (stordito) {
             tempoStordimento--;
 
@@ -59,14 +61,16 @@ public class Nemico {
                 velocita = velocitaBase;
             }
         }
+        // avanzamento nel percorso
         x += velocita;
     }
 
+    // Il nemico subisce danno
     public void subisciDanno(int danno) {
         vita -= danno;
 
+        // Effetto speciale del glitcher: può scattare in avanti quando colpito
         if (glitcher && vita > 0) {
-            // Il glitcher ogni tanto fa uno scatto in avanti quando viene colpito.
             if (Math.random() < 0.25) {
                 x += 45;
             }
