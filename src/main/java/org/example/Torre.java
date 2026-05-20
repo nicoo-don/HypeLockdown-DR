@@ -2,7 +2,7 @@ package org.example;
 
 import javafx.scene.paint.Color;
 
-public class Torre {
+public abstract class Torre {
     private String nome;
     private double x;
     private double y;
