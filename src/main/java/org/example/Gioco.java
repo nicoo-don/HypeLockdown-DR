@@ -25,8 +25,7 @@ public class Gioco {
             timer++;
 
             // Dopo un po' di tempo crea una nuova ondata
-            if (timer >= 120 && ondata <= MAX_ONDATE) {
-
+            if (timer >= 120 && ondata < MAX_ONDATE) {
                 // Numero nemici dell'ondata
                 int nem = 2 + ondata;
 
